@@ -1,0 +1,8 @@
+{
+  "name": "jee-auth-app",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "test": "npm run test -w backend"
+  }
+}
