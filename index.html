@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coaching Institute Admissions</title>
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --accent: #f5a623;
+      --bg: #f4f7fb;
+      --text: #1d2a3b;
+      --card: #ffffff;
+      --border: #d7deea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eef3ff 0%, #f7fbff 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .form-card {
+      width: min(760px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(17, 40, 72, 0.08);
+      overflow: hidden;
+    }
+
+    .form-header {
+      background: var(--primary);
+      color: white;
+      padding: 22px 28px;
+    }
+
+    .form-header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .form-header p {
+      margin: 8px 0 0;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    form {
+      padding: 26px 28px 28px;
+      background: var(--bg);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #c7d2e5;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .inline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    .inline input {
+      width: auto;
+      margin: 0;
+    }
+
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 18px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-reset {
+      background: #dfe8f5;
+      color: #1f3556;
+    }
+
+    .btn-submit {
+      background: var(--accent);
+      color: #1d2a3b;
+      font-weight: 700;
+    }
+
+    .status {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #12663f;
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <section class="form-card">
+    <header class="form-header">
+      <h1>Coaching Institute Admission Form</h1>
+      <p>Please complete all required details to apply for admission.</p>
+    </header>
+
+    <form id="admissionForm">
+      <div class="grid">
+        <div>
+          <label for="fullName">Student Full Name *</label>
+          <input id="fullName" name="fullName" type="text" required placeholder="Enter full name" />
+        </div>
+
+        <div>
+          <label for="dob">Date of Birth *</label>
+          <input id="dob" name="dob" type="date" required />
+        </div>
+
+        <div>
+          <label for="email">Email Address *</label>
+          <input id="email" name="email" type="email" required placeholder="student@example.com" />
+        </div>
+
+        <div>
+          <label for="phone">Mobile Number *</label>
+          <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" required placeholder="10-digit phone number" />
+        </div>
+
+        <div>
+          <label for="parentName">Parent/Guardian Name *</label>
+          <input id="parentName" name="parentName" type="text" required />
+        </div>
+
+        <div>
+          <label for="parentPhone">Parent Contact Number *</label>
+          <input id="parentPhone" name="parentPhone" type="tel" pattern="[0-9]{10}" required />
+        </div>
+
+        <div>
+          <label for="course">Course Applying For *</label>
+          <select id="course" name="course" required>
+            <option value="">Select a course</option>
+            <option>Foundation (Class 8-10)</option>
+            <option>JEE Main & Advanced</option>
+            <option>NEET</option>
+            <option>CUET</option>
+            <option>Board Exam Preparation</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="mode">Preferred Study Mode *</label>
+          <select id="mode" name="mode" required>
+            <option value="">Select mode</option>
+            <option>Classroom</option>
+            <option>Online Live</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="address">Residential Address *</label>
+          <textarea id="address" name="address" required placeholder="House no, street, city, state, pin"></textarea>
+        </div>
+
+        <div class="full">
+          <label for="message">Additional Notes</label>
+          <textarea id="message" name="message" placeholder="Share any learning goals or special requirements"></textarea>
+        </div>
+
+        <div class="full inline">
+          <input id="consent" name="consent" type="checkbox" required />
+          <label for="consent" style="margin:0; font-weight:500;">I confirm that the information provided is correct.</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-reset" type="reset">Reset</button>
+        <button class="btn-submit" type="submit">Submit Application</button>
+      </div>
+
+      <p class="status" id="statusMsg">Application submitted successfully. Our admissions team will contact you soon.</p>
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById('admissionForm');
+    const statusMsg = document.getElementById('statusMsg');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      statusMsg.style.display = 'block';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
